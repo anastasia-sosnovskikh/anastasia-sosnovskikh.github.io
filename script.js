@@ -6,7 +6,7 @@ let TO_LIGHT_THEME_ICON = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWl
 /* Inclide Header */
 jQuery(function(){ 					   
 	 jQuery("#custom-header").load("./ajax/custom-header.html");
-	 jQuery(".coming-soon").load("./ajax/coming-soon.html");
+	 jQuery("#coming-soon").load("./ajax/coming-soon.html");
 });
 
 
