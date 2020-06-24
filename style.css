@@ -1,0 +1,292 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    margin: auto;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    font-family: "Courier New", Courier, monospace;
+    line-height: 1.5em;
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    margin: auto;
+}
+
+header,
+footer {
+    flex-shrink: 0;
+
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 18px;
+}
+
+header {
+    border-bottom: 1px solid var(--color-accent);
+    /* width, style, color */
+}
+
+header .wide-container,
+footer .wide-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    min-height: 100px;
+}
+
+footer .wide-container {
+    flex-direction: column;
+    background-color: var(--color-accent);
+}
+
+.wide-container {
+    padding: 0 2.5em;
+    overflow: hidden;
+}
+
+header .wide-container .title {
+    width: 20%;
+}
+
+header .wide-container .title,
+header .wide-contaner .header-nav,
+header .wide-container .byline {
+    padding: 1em;
+}
+
+header .wide-container .header-nav {
+    width: 60%;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    padding: 0 1em;
+}
+
+.byline {
+    width: 20%;
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-secondary);
+}
+
+main a {
+    text-decoration: underline;
+}
+
+footer .wide-container nav {
+    width: 100%;
+    text-align: center;
+}
+
+.container {
+    overflow: hidden;
+    max-width: 32em;
+    text-align: center;
+    flex-direction: column;
+    margin: 2.5em 0 1.25em 0;
+
+}
+
+.container .title {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.container p,
+.container .title,
+.container img {
+    margin: 1em 0 1em 0;
+}
+
+
+
+#theme-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.theme-switcher {
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.coming-soon {
+    width: 5em;
+    margin: 2.5em 0 1.25em 0;
+}
+
+.svg-icon path {
+    fill: var(--font-color);
+}
+
+a:link,
+a:visited,
+    {
+    color: var(--color-secondary);
+}
+
+a:active,
+a:hover {
+    color: var(--color-primary);
+}
+
+
+.theme-light {
+    --font-color: #333;
+    --color-primary: #777;
+    --color-secondary: #aaa;
+    --color-accent: #f5f5f5;
+    --background-color: #fff;
+}
+
+.theme-dark {
+    --font-color: #aaa;
+    --color-primary: #f5f5f5;
+    --color-secondary: #fff;
+    --color-accent: #202020;
+    --background-color: #121212;
+}
+
+img.profile {
+    width: 10em;
+    border-radius: 50%;
+}
+
+input[type=button] {
+    background-color: var(--color-secondary);
+    border: none;
+    color: var(--font-color);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 1em;
+    margin: 1em;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+input[type=button]:hover {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+}
+
+
+input[type=button]:active {
+    background-color: var(--font-color);
+    color: var(--background-color);
+}
+
+.shadow {
+    box-shadow: 0 0.4em 0.3em -0.3em var(--font-color);
+}
+
+.typewriter {
+    border-right: solid 0.08em var(--font-color);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: animated-text 2s steps(10, end) 1s 1 normal both,
+        animated-cursor 1s steps(10, end) infinite;
+}
+
+@keyframes animated-text {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 6em;
+    }
+}
+
+@keyframes animated-cursor {
+    from {
+        border-right-color: var(--font-color);
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .wide-container,
+    .container {
+        max-width: 70em;
+        margin: 0 auto;
+        padding: 0 1.5em;
+        overflow: hidden;
+    }
+
+    /* extra */
+    header {
+        height: 500px;
+    }
+
+    header .wide-container {
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    header .wide-container .title {
+        width: 30%;
+    }
+
+    header .wide-container .header-nav {
+        width: 80%;
+    }
+
+    .header-nav {
+        padding: 0 1em 1em 1em;
+    }
+
+    header .wide-container .byline {
+        display: none;
+    }
+
+}
+
+@media print {
+    body {
+        font-size: 14px;
+        background-color: white;
+        color: black;
+    }
+
+    .container,
+    .wide-container {
+        display: block;
+    }
+}
