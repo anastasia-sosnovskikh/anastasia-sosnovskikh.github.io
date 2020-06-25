@@ -34,7 +34,7 @@ window.onload = () => {
 /* cahnges theme */
 function change_theme() {
     let current_theme = get_theme()
-    let theme_icon = document.querySelector('#theme-button img')
+    let theme_icon = document.querySelector('#theme-icon')
     console.log(theme_icon)
 
     if (current_theme === 'theme-light') {
