@@ -15,7 +15,7 @@ document.onreadystatechange = function(e) {
     if (document.readyState === 'complete') {
 
         let current_theme = get_theme()
-        let theme_icon = document.querySelector('img')
+        let theme_icon = document.querySelector('#theme-icon')
         if (current_theme === null) {
             current_theme = 'theme-light'
         }
@@ -35,7 +35,6 @@ window.onload = () => {
 function change_theme() {
     let current_theme = get_theme()
     let theme_icon = document.querySelector('#theme-icon')
-    console.log(theme_icon)
 
     if (current_theme === 'theme-light') {
         set_theme(theme_icon, 'theme-dark')
