@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mdBook — Anastasia Sosnovskikh</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-sans/style.min.css">
+</head>
+<body class="theme-light">
+    <main class="content article-page">
+        <a href="../index.html#writing" class="back-link">← Back</a>
+
+        <article class="article">
+            <header class="article-header">
+                <time class="article-date">September 23, 2021</time>
+                <h1 class="article-title">mdBook</h1>
+            </header>
+
+            <div class="article-body">
+                <p>A guide on how to set up a website using mdBook, a documentation tool built with Rust.</p>
+
+                <h2>Setup</h2>
+                <p>First ensure you have the latest Rust version installed, then install mdBook via Cargo. After initialization with <code>mdbook init</code>, you'll have a project structure with a <code>src</code> directory for markdown files and a <code>book</code> directory for rendered output.</p>
+
+                <h2>Development Workflow</h2>
+                <p>For active development, there are three rendering options:</p>
+                <ul>
+                    <li><strong>Building:</strong> Run <code>mdbook build</code> to generate static output</li>
+                    <li><strong>Watching:</strong> Use <code>mdbook watch</code> for automatic rebuilds on file changes</li>
+                    <li><strong>Serving:</strong> Execute <code>mdbook serve</code> to preview changes at localhost:3000 with hot reloading</li>
+                </ul>
+
+                <h2>Content Organization</h2>
+                <p>The <code>SUMMARY.md</code> file structures your book using three chapter types: prefix chapters (unnumbered introductory content), numbered chapters (main content with optional nesting), and suffix chapters (concluding unnumbered sections).</p>
+
+                <h2>Deployment</h2>
+                <p>To host on GitHub Pages, create a <code>gh-pages</code> branch and populate its root directory with the <code>mdbook build</code> output.</p>
+
+                <p><em>Adapted from the official mdBook documentation.</em></p>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        // Theme persistence
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.classList.remove('theme-light', 'theme-dark');
+        document.body.classList.add(`theme-${savedTheme}`);
+    </script>
+</body>
+</html>
