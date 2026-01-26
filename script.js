@@ -60,7 +60,7 @@
     // Smooth scroll for nav links with easing
     function smoothScrollTo(target, duration = 800) {
         const start = window.scrollY;
-        const offset = window.innerWidth > 900 ? 0 : 80;
+        const offset = window.innerWidth > 900 ? 96 : 80;
         const targetPosition = target.offsetTop - offset;
         const distance = targetPosition - start;
         let startTime = null;

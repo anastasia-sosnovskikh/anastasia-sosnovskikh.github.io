@@ -36,7 +36,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4rem;
+    scroll-padding-top: 8rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
