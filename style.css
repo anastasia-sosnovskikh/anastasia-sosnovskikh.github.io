@@ -347,6 +347,13 @@ body {
 }
 
 .work-item {
+    padding: 1rem;
+    margin: 0 -1rem;
+    transition: background 0.2s ease;
+}
+
+.work-item:hover {
+    background: var(--hover);
 }
 
 .work-tag {
