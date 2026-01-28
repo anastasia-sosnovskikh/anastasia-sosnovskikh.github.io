@@ -629,13 +629,8 @@ body {
     display: inline-block;
     color: var(--text-muted);
     text-decoration: none;
-    margin-bottom: 3rem;
     font-size: 0.875rem;
     transition: color 0.2s ease;
-}
-
-.article-nav .back-link {
-    margin-bottom: 0;
 }
 
 .back-link:hover {
