@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anastasia Sosnovskikh — ML Engineer</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Calendly link widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- Calendly link widget end -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-sans/style.min.css">
 </head>
 <body class="theme-light">
@@ -48,7 +52,6 @@
                 <p>I turn ML research into systems that work at scale. Eight years in industry — and a Master's in Machine Learning currently in progress — taught me that the hardest part isn't the model. It's everything around it.</p>
                 <p>My background is a bit unusual: Computer Science meets Psychology and Neuroscience. It shapes how I think about building systems that work for people, not just on benchmarks.</p>
             </div>
-
             <div class="skills">
                 <span class="skill">Python</span>
                 <span class="skill">R</span>
@@ -212,16 +215,22 @@
             <h2 class="section-title">Contact</h2>
 
             <div class="contact-content">
-                <p>Open to ML engineering and data science roles. If you're building something interesting, let's talk.</p>
+                <p class="contact-intro">Open to ML engineering and data science roles. If you're building something interesting, let's talk.</p>
 
+                <div class="contact-links">
+                    <a class="contact-link contact-link-primary" href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/anastasia-sosnovskikh/30min?hide_gdpr_banner=1'});return false;">Schedule a call</a>
+                    <span class="contact-or">or</span>
+                    <a class="contact-link" href="https://calendly.com/anastasia-sosnovskikh/30min?hide_gdpr_banner=1" target="_blank" rel="noopener">open in new tab <span class="external-arrow">↗</span></a>
+                </div>
+
+                <p class="contact-subtitle">Prefer email?</p>
                 <form class="contact-form" id="contact-form">
                     <input type="text" name="name" placeholder="Name" required>
                     <input type="email" name="email" placeholder="Email" required>
-                    <textarea name="message" placeholder="Message" rows="4" required></textarea>
+                    <textarea name="message" placeholder="Message" required></textarea>
                     <button type="submit">Send</button>
                     <p class="form-status"></p>
                 </form>
-
             </div>
         </section>
     </main>

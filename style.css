@@ -471,24 +471,33 @@ body {
 
 /* Contact Section */
 .contact-content {
-    max-width: 480px;
+    max-width: 520px;
 }
 
-.contact-content > p {
+.contact-intro {
     color: var(--text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.contact-subtitle {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin: 2.5rem 0 1.5rem;
 }
 
 .contact-links {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 3rem;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .contact-link {
     color: var(--text);
     text-decoration: none;
+    font-size: 0.875rem;
     transition: color 0.2s ease;
 }
 
@@ -496,22 +505,65 @@ body {
     color: var(--text-muted);
 }
 
+.contact-or {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.contact-link-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    background: var(--text);
+    color: var(--bg);
+    border: 1px solid var(--text);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.contact-link-primary:hover {
+    opacity: 0.8;
+    color: var(--bg);
+}
+
+/* Calendly popup styling to match site */
+.calendly-overlay {
+    background: rgba(10, 10, 10, 0.6) !important;
+    backdrop-filter: blur(4px);
+}
+
+.calendly-popup {
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35) !important;
+    border-radius: 12px !important;
+}
+
+.calendly-popup-content {
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+.calendly-close-overlay {
+    color: #ffffff !important;
+}
+
 /* Contact Form */
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    max-width: 400px;
+    gap: 0;
 }
 
 .contact-form input,
 .contact-form textarea {
     font-family: inherit;
     font-size: 0.875rem;
-    padding: 0.75rem;
-    border: 1px solid var(--border);
-    background: var(--bg);
+    padding: 0.875rem 0;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
     color: var(--text);
     outline: none;
     transition: border-color 0.2s ease;
@@ -528,15 +580,19 @@ body {
 }
 
 .contact-form textarea {
-    resize: vertical;
-    min-height: 100px;
+    resize: none;
+    min-height: 80px;
+    margin-top: 0.5rem;
 }
 
 .contact-form button {
     font-family: inherit;
     font-size: 0.875rem;
-    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    padding: 0.625rem 1.25rem;
+    margin-top: 1.5rem;
     border: 1px solid var(--text);
+    border-radius: 4px;
     background: var(--text);
     color: var(--bg);
     cursor: pointer;
@@ -549,9 +605,10 @@ body {
 }
 
 .form-status {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    min-height: 1.5em;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    min-height: 1.25em;
 }
 
 /* Article Pages */
@@ -720,5 +777,15 @@ body {
 
     .writing-date {
         width: auto;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .contact-or {
+        display: none;
     }
 }
