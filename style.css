@@ -622,7 +622,6 @@ body {
     display: inline-block;
     color: var(--text-muted);
     text-decoration: none;
-    margin-bottom: 3rem;
     font-size: 0.875rem;
     transition: color 0.2s ease;
 }
@@ -633,6 +632,13 @@ body {
 
 .article-header {
     margin-bottom: 2rem;
+}
+
+.article-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
 }
 
 .article-date {
@@ -683,6 +689,18 @@ body {
 }
 
 .article-body em {
+    color: var(--text-muted);
+}
+
+.substack-link {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.substack-link:hover {
     color: var(--text-muted);
 }
 
