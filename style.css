@@ -535,25 +535,6 @@ body {
     color: var(--bg);
 }
 
-/* Calendly popup styling to match site */
-.calendly-overlay {
-    background: rgba(10, 10, 10, 0.6) !important;
-    backdrop-filter: blur(4px);
-}
-
-.calendly-popup {
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35) !important;
-    border-radius: 12px !important;
-}
-
-.calendly-popup-content {
-    border-radius: 12px !important;
-    overflow: hidden;
-}
-
-.calendly-close-overlay {
-    color: #ffffff !important;
-}
 
 /* Contact Form */
 .contact-form {

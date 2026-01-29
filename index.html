@@ -15,12 +15,12 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <!-- Calendly link widget begin -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <!-- Calendly link widget end -->
+    <!-- Cal.com embed -->
+    <script>
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", {origin: "https://cal.com"});
+    </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-sans/style.min.css">
 </head>
 <body class="theme-light">
@@ -233,9 +233,9 @@
                 <p class="contact-intro">Open to ML engineering and data science roles. If you're building something interesting, let's talk.</p>
 
                 <div class="contact-links">
-                    <a class="contact-link contact-link-primary" href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/anastasia-sosnovskikh/30min?hide_gdpr_banner=1'});return false;">Schedule a call</a>
+                    <a class="contact-link contact-link-primary" href="#" data-cal-link="anastasia-sosnovskikh" data-cal-config='{"layout":"month_view"}' onclick="return false;">Schedule a call</a>
                     <span class="contact-or">or</span>
-                    <a class="contact-link" href="https://calendly.com/anastasia-sosnovskikh/30min?hide_gdpr_banner=1" target="_blank" rel="noopener">open in new tab <span class="external-arrow">↗</span></a>
+                    <a class="contact-link" href="https://cal.com/anastasia-sosnovskikh" target="_blank" rel="noopener">open in new tab <span class="external-arrow">↗</span></a>
                 </div>
 
                 <p class="contact-subtitle">Prefer email?</p>
