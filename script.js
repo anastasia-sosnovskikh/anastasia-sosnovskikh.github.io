@@ -100,6 +100,31 @@
     // Initial call
     updateActiveLink();
 
+    // Easter egg: triple-click logo to reveal playlist
+    const logo = document.querySelector('.logo');
+    let clickCount = 0;
+    let clickTimer = null;
+
+    logo.addEventListener('click', (e) => {
+        clickCount++;
+        clearTimeout(clickTimer);
+        if (clickCount === 3) {
+            e.preventDefault();
+            clickCount = 0;
+            const existing = document.querySelector('.easter-egg');
+            if (existing) { existing.remove(); return; }
+            const el = document.createElement('a');
+            el.className = 'easter-egg';
+            el.href = 'https://www.youtube.com/watch?v=d2XcKa8iagg';
+            el.target = '_blank';
+            el.rel = 'noopener';
+            el.innerHTML = '&#9834; &#9835;';
+            logo.parentElement.insertBefore(el, logo.nextSibling);
+        } else {
+            clickTimer = setTimeout(() => { clickCount = 0; }, 400);
+        }
+    });
+
     // Contact Form Submission
     const form = document.getElementById('contact-form');
     const status = form.querySelector('.form-status');
