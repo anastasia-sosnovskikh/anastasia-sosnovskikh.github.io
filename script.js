@@ -139,6 +139,68 @@
 
     updateActiveLink();
 
+    const systemMap = document.querySelector('.system-map');
+    const systemNodes = Array.from(document.querySelectorAll('[data-system-step]'));
+    const systemDetail = document.getElementById('system-detail');
+
+    if (systemMap && systemDetail && systemNodes.length) {
+        const detailPhase = systemDetail.querySelector('[data-system-phase]');
+        const detailNumber = systemDetail.querySelector('[data-system-number]');
+        const detailTitle = systemDetail.querySelector('[data-system-title]');
+        const detailDescription = systemDetail.querySelector('[data-system-description]');
+
+        function activateSystemNode(node) {
+            systemNodes.forEach(item => {
+                const isActive = item === node;
+                item.classList.toggle('is-active', isActive);
+                item.setAttribute('aria-pressed', String(isActive));
+            });
+
+            detailPhase.textContent = node.dataset.phase;
+            detailNumber.textContent = node.dataset.step;
+            detailTitle.textContent = node.dataset.title;
+            detailDescription.textContent = node.dataset.description;
+            systemDetail.dataset.phase = node.dataset.phase.toLowerCase();
+        }
+
+        systemNodes.forEach((node, index) => {
+            node.addEventListener('pointerenter', () => activateSystemNode(node));
+            node.addEventListener('focus', () => activateSystemNode(node));
+            node.addEventListener('click', () => activateSystemNode(node));
+            node.addEventListener('keydown', event => {
+                let nextIndex = null;
+
+                if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                    nextIndex = (index + 1) % systemNodes.length;
+                } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                    nextIndex = (index - 1 + systemNodes.length) % systemNodes.length;
+                } else if (event.key === 'Home') {
+                    nextIndex = 0;
+                } else if (event.key === 'End') {
+                    nextIndex = systemNodes.length - 1;
+                }
+
+                if (nextIndex !== null) {
+                    event.preventDefault();
+                    systemNodes[nextIndex].focus();
+                }
+            });
+        });
+
+        if ('IntersectionObserver' in window) {
+            const systemObserver = new IntersectionObserver(entries => {
+                if (entries.some(entry => entry.isIntersecting)) {
+                    systemMap.classList.add('is-visible');
+                    systemObserver.disconnect();
+                }
+            }, { threshold: 0.25 });
+
+            systemObserver.observe(systemMap);
+        } else {
+            systemMap.classList.add('is-visible');
+        }
+    }
+
     // Easter egg: triple-click logo to reveal playlist
     const logo = document.querySelector('.logo');
     let clickCount = 0;
