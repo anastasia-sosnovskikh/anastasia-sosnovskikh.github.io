@@ -72,8 +72,8 @@
                 <span class="skill">Python</span>
                 <span class="skill">R</span>
                 <span class="skill">SQL</span>
-                <span class="skill">AWS</span>
                 <span class="skill">Azure</span>
+                <span class="skill">AWS</span>
                 <span class="skill">NLP</span>
             </div>
         </section>
@@ -84,22 +84,25 @@
             <p class="approach-lede">A model is one component. The work is turning an ambiguous need into a reliable system that people can use and the business can measure.</p>
 
             <div class="system-explorer">
-                <div class="system-map" aria-label="The eight parts of taking a model from business need to adoption">
+                <div class="system-map" data-active-phase="define" aria-label="The eight parts of taking a model from business need to adoption">
                     <svg class="system-connectors" viewBox="0 0 100 100" aria-hidden="true">
-                        <circle cx="50" cy="50" r="31"></circle>
-                        <line x1="50" y1="50" x2="50" y2="7"></line>
-                        <line x1="50" y1="50" x2="78" y2="20"></line>
-                        <line x1="50" y1="50" x2="87" y2="50"></line>
-                        <line x1="50" y1="50" x2="78" y2="80"></line>
-                        <line x1="50" y1="50" x2="50" y2="93"></line>
-                        <line x1="50" y1="50" x2="22" y2="80"></line>
-                        <line x1="50" y1="50" x2="13" y2="50"></line>
-                        <line x1="50" y1="50" x2="22" y2="20"></line>
+                        <circle class="system-track" cx="50" cy="50" r="31"></circle>
+                        <circle class="system-phase-arc phase-ring-define" cx="50" cy="50" r="31" stroke-dasharray="42 153" stroke-dashoffset="0"></circle>
+                        <circle class="system-phase-arc phase-ring-design" cx="50" cy="50" r="31" stroke-dasharray="42 153" stroke-dashoffset="-49"></circle>
+                        <circle class="system-phase-arc phase-ring-build" cx="50" cy="50" r="31" stroke-dasharray="42 153" stroke-dashoffset="-98"></circle>
+                        <circle class="system-phase-arc phase-ring-deliver" cx="50" cy="50" r="31" stroke-dasharray="42 153" stroke-dashoffset="-147"></circle>
+                        <line class="system-spoke spoke-define is-active" data-system-spoke="01" x1="50" y1="50" x2="50" y2="7"></line>
+                        <line class="system-spoke spoke-define" data-system-spoke="02" x1="50" y1="50" x2="78" y2="20"></line>
+                        <line class="system-spoke spoke-design" data-system-spoke="03" x1="50" y1="50" x2="87" y2="50"></line>
+                        <line class="system-spoke spoke-design" data-system-spoke="04" x1="50" y1="50" x2="78" y2="80"></line>
+                        <line class="system-spoke spoke-build" data-system-spoke="05" x1="50" y1="50" x2="50" y2="93"></line>
+                        <line class="system-spoke spoke-build" data-system-spoke="06" x1="50" y1="50" x2="22" y2="80"></line>
+                        <line class="system-spoke spoke-deliver" data-system-spoke="07" x1="50" y1="50" x2="13" y2="50"></line>
+                        <line class="system-spoke spoke-deliver" data-system-spoke="08" x1="50" y1="50" x2="22" y2="20"></line>
                     </svg>
 
                     <div class="system-core" aria-hidden="true">
                         <span class="system-core-label">Model</span>
-                        <span class="system-core-caption">one component</span>
                     </div>
 
                     <button class="system-node phase-define is-active" type="button" style="--x: 50%; --y: 7%; --order: 1" data-system-step data-step="01" data-phase="Define" data-title="Business need" data-description="Translate ambiguity into a problem the team can solve." aria-controls="system-detail" aria-pressed="true">
@@ -310,7 +313,7 @@
             <h2 class="section-title">Contact</h2>
 
             <div class="contact-content">
-                <p class="contact-intro">Open to ML engineering and data science roles. If you're building something interesting, let's talk.</p>
+                <p class="contact-intro">Open to engineering leadership and technical roles across software, data, and AI. If you're building something interesting, let's talk.</p>
 
                 <div class="contact-links">
                     <a class="contact-link contact-link-primary" href="https://cal.com/anastasia-sosnovskikh" target="_blank" rel="noopener" data-cal-link="anastasia-sosnovskikh" data-cal-config='{"layout":"month_view"}'>Schedule a call</a>

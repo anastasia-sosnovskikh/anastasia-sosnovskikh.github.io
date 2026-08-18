@@ -144,23 +144,60 @@
     const systemDetail = document.getElementById('system-detail');
 
     if (systemMap && systemDetail && systemNodes.length) {
+        const systemCore = systemMap.querySelector('.system-core');
+        const systemSpokes = Array.from(systemMap.querySelectorAll('[data-system-spoke]'));
         const detailPhase = systemDetail.querySelector('[data-system-phase]');
         const detailNumber = systemDetail.querySelector('[data-system-number]');
         const detailTitle = systemDetail.querySelector('[data-system-title]');
         const detailDescription = systemDetail.querySelector('[data-system-description]');
+        let corePulseAnimation = null;
+        let detailRevealAnimation = null;
 
         function activateSystemNode(node) {
+            const phase = node.dataset.phase.toLowerCase();
+            const wasActive = node.classList.contains('is-active');
+
             systemNodes.forEach(item => {
                 const isActive = item === node;
                 item.classList.toggle('is-active', isActive);
                 item.setAttribute('aria-pressed', String(isActive));
             });
 
+            systemSpokes.forEach(spoke => {
+                spoke.classList.toggle('is-active', spoke.dataset.systemSpoke === node.dataset.step);
+            });
+
             detailPhase.textContent = node.dataset.phase;
             detailNumber.textContent = node.dataset.step;
             detailTitle.textContent = node.dataset.title;
             detailDescription.textContent = node.dataset.description;
-            systemDetail.dataset.phase = node.dataset.phase.toLowerCase();
+            systemDetail.dataset.phase = phase;
+            systemMap.dataset.activePhase = phase;
+
+            if (!wasActive && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                if (systemCore && typeof systemCore.animate === 'function') {
+                    if (corePulseAnimation) corePulseAnimation.cancel();
+                    corePulseAnimation = systemCore.animate([
+                        { transform: 'translate(-50%, -50%) scale(1)' },
+                        { transform: 'translate(-50%, -50%) scale(1.035)', offset: 0.45 },
+                        { transform: 'translate(-50%, -50%) scale(1)' }
+                    ], {
+                        duration: 460,
+                        easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)'
+                    });
+                }
+
+                if (typeof systemDetail.animate === 'function') {
+                    if (detailRevealAnimation) detailRevealAnimation.cancel();
+                    detailRevealAnimation = systemDetail.animate([
+                        { opacity: 0.68, transform: 'translateY(3px)' },
+                        { opacity: 1, transform: 'translateY(0)' }
+                    ], {
+                        duration: 240,
+                        easing: 'ease-out'
+                    });
+                }
+            }
         }
 
         systemNodes.forEach((node, index) => {
