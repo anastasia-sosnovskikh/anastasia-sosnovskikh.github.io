@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anastasia-sosnovskikh.github.io/sitemap.xml

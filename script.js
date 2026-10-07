@@ -92,52 +92,49 @@
         }
     });
 
-    function smoothScrollTo(target, duration = 800) {
-        const start = window.scrollY;
-        const offset = window.innerWidth > 900 ? 96 : 80;
-        const targetPosition = target.offsetTop - offset;
-        const distance = targetPosition - start;
-        let startTime = null;
+    updateActiveLink();
 
-        function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 3);
-        }
+    const sectionLinks = document.querySelectorAll(
+        '.nav-link, .button-link[href^="#"], .logo, .social-links a[href^="#"]'
+    );
+    let sectionScrollFrame = null;
 
-        function animation(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = easeOutCubic(progress);
+    sectionLinks.forEach(link => {
+        link.addEventListener('click', event => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-            window.scrollTo(0, start + distance * eased);
+            const target = document.querySelector(link.getAttribute('href'));
+            if (!target) return;
 
-            if (progress < 1) {
-                requestAnimationFrame(animation);
+            event.preventDefault();
+
+            if (sectionScrollFrame) cancelAnimationFrame(sectionScrollFrame);
+
+            const start = window.scrollY;
+            const offset = window.innerWidth > 900 ? 96 : 88;
+            const destination = Math.max(0, target.getBoundingClientRect().top + start - offset);
+            const distance = destination - start;
+            const duration = Math.min(850, Math.max(480, Math.abs(distance) * 0.18));
+            const startTime = performance.now();
+
+            function step(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = progress < 0.5
+                    ? 4 * Math.pow(progress, 3)
+                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                window.scrollTo(0, start + distance * eased);
+
+                if (progress < 1) {
+                    sectionScrollFrame = requestAnimationFrame(step);
+                } else {
+                    sectionScrollFrame = null;
+                    history.replaceState(null, '', link.getAttribute('href'));
+                }
             }
-        }
 
-        requestAnimationFrame(animation);
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-
-            if (!targetSection) return;
-
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                const offset = window.innerWidth > 900 ? 96 : 80;
-                window.scrollTo(0, targetSection.offsetTop - offset);
-                return;
-            }
-
-            smoothScrollTo(targetSection);
+            sectionScrollFrame = requestAnimationFrame(step);
         });
     });
-
-    updateActiveLink();
 
     const systemMap = document.querySelector('.system-map');
     const systemNodes = Array.from(document.querySelectorAll('[data-system-step]'));
