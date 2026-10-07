@@ -18,7 +18,7 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="stylesheet" href="style.css?v=20261007j">
+    <link rel="stylesheet" href="style.css?v=20261007k">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-sans/style.min.css">
     <script type="application/ld+json">
     {
@@ -185,28 +185,28 @@
             <div class="trace-explorer">
                 <div class="trace-diagram" role="group" data-active-phase="frame" aria-label="A systems trace from ambiguous inputs through architecture and delivery to measurable impact">
                     <svg class="trace-lines" viewBox="0 0 960 220" preserveAspectRatio="none" aria-hidden="true">
-                        <path class="trace-segment trace-frame" d="M 0 35 L 180 110"></path>
-                        <path class="trace-segment trace-frame" d="M 0 110 L 180 110"></path>
-                        <path class="trace-segment trace-frame" d="M 0 185 L 180 110 L 370 110"></path>
+                        <path class="trace-segment trace-frame" pathLength="1" d="M 0 30 C 72 30 108 110 180 110"></path>
+                        <path class="trace-segment trace-frame" pathLength="1" d="M 0 110 C 70 110 110 110 180 110"></path>
+                        <path class="trace-segment trace-frame" pathLength="1" d="M 0 190 C 72 190 108 110 180 110 C 245 110 310 110 370 110"></path>
 
-                        <path class="trace-segment trace-architect" d="M 370 110 L 470 45 L 570 45"></path>
-                        <path class="trace-segment trace-architect" d="M 370 110 L 470 85 L 570 85"></path>
-                        <path class="trace-segment trace-architect" d="M 370 110 L 470 135 L 570 135"></path>
-                        <path class="trace-segment trace-architect" d="M 370 110 L 470 175 L 570 175"></path>
+                        <path class="trace-segment trace-architect" pathLength="1" d="M 370 110 C 410 110 430 40 480 40 C 515 40 535 45 570 45"></path>
+                        <path class="trace-segment trace-architect" pathLength="1" d="M 370 110 C 420 110 440 82 485 82 C 520 82 540 85 570 85"></path>
+                        <path class="trace-segment trace-architect" pathLength="1" d="M 370 110 C 420 110 440 138 485 138 C 520 138 540 135 570 135"></path>
+                        <path class="trace-segment trace-architect" pathLength="1" d="M 370 110 C 410 110 430 180 480 180 C 515 180 535 175 570 175"></path>
 
-                        <path class="trace-segment trace-deliver" d="M 570 45 L 610 45 L 700 110"></path>
-                        <path class="trace-segment trace-deliver" d="M 570 85 L 610 85 L 700 110"></path>
-                        <path class="trace-segment trace-deliver" d="M 570 135 L 610 135 L 700 110"></path>
-                        <path class="trace-segment trace-deliver" d="M 570 175 L 610 175 L 700 110 L 835 110"></path>
+                        <path class="trace-segment trace-deliver" pathLength="1" d="M 570 45 C 625 45 645 110 700 110"></path>
+                        <path class="trace-segment trace-deliver" pathLength="1" d="M 570 85 C 625 85 650 110 700 110"></path>
+                        <path class="trace-segment trace-deliver" pathLength="1" d="M 570 135 C 625 135 650 110 700 110"></path>
+                        <path class="trace-segment trace-deliver" pathLength="1" d="M 570 175 C 625 175 645 110 700 110 C 750 110 790 110 835 110"></path>
 
-                        <path class="trace-segment trace-improve" d="M 835 110 L 950 110"></path>
-                        <path class="trace-segment trace-improve trace-feedback" d="M 835 125 C 790 210 260 210 180 125"></path>
-                        <path class="trace-arrow trace-improve" d="M 950 110 L 940 103 M 950 110 L 940 117"></path>
+                        <path class="trace-segment trace-improve" pathLength="1" d="M 835 110 C 875 110 915 110 950 110"></path>
+                        <path class="trace-segment trace-improve trace-feedback" d="M 835 128 C 785 218 330 235 180 128"></path>
+                        <path class="trace-arrow trace-improve" pathLength="1" d="M 950 110 L 940 103 M 950 110 L 940 117"></path>
 
-                        <path class="trace-gate trace-frame" d="M 180 96 L 180 124"></path>
-                        <path class="trace-gate trace-architect" d="M 370 96 L 370 124"></path>
-                        <path class="trace-gate trace-deliver" d="M 700 96 L 700 124"></path>
-                        <path class="trace-gate trace-improve" d="M 835 96 L 835 124"></path>
+                        <path class="trace-gate trace-frame" pathLength="1" d="M 180 96 L 180 124"></path>
+                        <path class="trace-gate trace-architect" pathLength="1" d="M 370 96 L 370 124"></path>
+                        <path class="trace-gate trace-deliver" pathLength="1" d="M 700 96 L 700 124"></path>
+                        <path class="trace-gate trace-improve" pathLength="1" d="M 835 96 L 835 124"></path>
                     </svg>
 
                     <div class="trace-input-labels" aria-hidden="true">
@@ -221,7 +221,7 @@
                         <span>Infrastructure</span>
                     </div>
                     <span class="trace-mobile-input-label" aria-hidden="true">Inputs</span>
-                    <span class="trace-mobile-system-label" aria-hidden="true">System</span>
+                    <span class="trace-mobile-system-label" aria-hidden="true">Working<br>system</span>
                     <span class="trace-impact-label" aria-hidden="true">Impact</span>
 
                     <button class="trace-phase trace-phase-frame is-active" type="button" data-trace-phase="frame" aria-controls="trace-detail" aria-pressed="true">
@@ -371,6 +371,6 @@
         </section>
     </main>
 
-    <script src="script.js?v=20261007j"></script>
+    <script src="script.js?v=20261007k"></script>
 </body>
 </html>

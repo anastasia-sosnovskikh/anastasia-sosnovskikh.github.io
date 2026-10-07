@@ -387,32 +387,46 @@ select:focus-visible {
     opacity: 0.9;
 }
 
+.trace-segment:not(.trace-feedback),
+.trace-gate,
+.trace-arrow {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+}
+
 .trace-diagram[data-active-phase="frame"] .trace-frame {
     stroke: var(--phase-define);
     stroke-width: 1.75;
     opacity: 1;
-    animation: traceFocus 0.35s ease-out;
 }
 
 .trace-diagram[data-active-phase="architect"] .trace-architect {
     stroke: var(--phase-design);
     stroke-width: 1.75;
     opacity: 1;
-    animation: traceFocus 0.35s ease-out;
 }
 
 .trace-diagram[data-active-phase="deliver"] .trace-deliver {
     stroke: var(--phase-build);
     stroke-width: 1.75;
     opacity: 1;
-    animation: traceFocus 0.35s ease-out;
 }
 
 .trace-diagram[data-active-phase="improve"] .trace-improve {
     stroke: var(--phase-deliver);
     stroke-width: 1.75;
     opacity: 1;
-    animation: traceFocus 0.35s ease-out;
+}
+
+.trace-diagram[data-active-phase="frame"] .trace-frame,
+.trace-diagram[data-active-phase="architect"] .trace-architect,
+.trace-diagram[data-active-phase="deliver"] .trace-deliver,
+.trace-diagram[data-active-phase="improve"] .trace-improve:not(.trace-feedback) {
+    animation: traceDraw 0.6s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.trace-diagram[data-active-phase="improve"] .trace-feedback {
+    animation: traceFocus 0.4s ease-out;
 }
 
 .trace-input-labels span,
@@ -563,6 +577,18 @@ select:focus-visible {
 .trace-detail-step + .trace-detail-step {
     padding-left: 2rem;
     border-left: 1px solid var(--border);
+}
+
+@keyframes traceDraw {
+    from {
+        opacity: 0.3;
+        stroke-dashoffset: 1;
+    }
+
+    to {
+        opacity: 1;
+        stroke-dashoffset: 0;
+    }
 }
 
 @keyframes traceFocus {
@@ -1305,6 +1331,8 @@ select:focus-visible {
         top: 38.5%;
         color: var(--text-secondary);
         font-size: 0.5625rem;
+        line-height: 1.2;
+        text-align: center;
         transform: translate(-50%, -50%);
     }
 
