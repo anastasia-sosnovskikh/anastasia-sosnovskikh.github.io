@@ -136,103 +136,108 @@
         });
     });
 
-    const systemMap = document.querySelector('.system-map');
-    const systemNodes = Array.from(document.querySelectorAll('[data-system-step]'));
-    const systemDetail = document.getElementById('system-detail');
+    const traceDiagram = document.querySelector('.trace-diagram');
+    const tracePhases = Array.from(document.querySelectorAll('[data-trace-phase]'));
+    const traceDetail = document.getElementById('trace-detail');
 
-    if (systemMap && systemDetail && systemNodes.length) {
-        const systemCore = systemMap.querySelector('.system-core');
-        const systemSpokes = Array.from(systemMap.querySelectorAll('[data-system-spoke]'));
-        const detailPhase = systemDetail.querySelector('[data-system-phase]');
-        const detailNumber = systemDetail.querySelector('[data-system-number]');
-        const detailTitle = systemDetail.querySelector('[data-system-title]');
-        const detailDescription = systemDetail.querySelector('[data-system-description]');
-        let corePulseAnimation = null;
-        let detailRevealAnimation = null;
+    if (traceDiagram && traceDetail && tracePhases.length) {
+        const traceContent = {
+            frame: {
+                label: 'Frame',
+                range: '01–02',
+                titleOne: 'Frame the problem',
+                descriptionOne: 'Clarify the need, users, constraints, and technical context.',
+                titleTwo: 'Define success',
+                descriptionTwo: 'Set KPIs and technical guardrails before implementation.'
+            },
+            architect: {
+                label: 'Architect',
+                range: '03–04',
+                titleOne: 'Set technical direction',
+                descriptionOne: 'Evaluate product, data, ML, and infrastructure tradeoffs.',
+                titleTwo: 'Shape the solution',
+                descriptionTwo: 'Turn direction into system boundaries and an executable plan.'
+            },
+            deliver: {
+                label: 'Deliver',
+                range: '05–06',
+                titleOne: 'Lead execution',
+                descriptionOne: 'Align frontend, backend, design, data science, ML, and infrastructure.',
+                titleTwo: 'Remove blockers',
+                descriptionTwo: 'Resolve technical dependencies and mobilize partner teams.'
+            },
+            improve: {
+                label: 'Improve',
+                range: '07–08',
+                titleOne: 'Deliver and operate',
+                descriptionOne: 'Lead production readiness, reliability, security, and adoption.',
+                titleTwo: 'Measure and improve',
+                descriptionTwo: 'Track system performance and business impact, then iterate.'
+            }
+        };
+        const phaseLabel = traceDetail.querySelector('[data-trace-phase-label]');
+        const phaseRange = traceDetail.querySelector('[data-trace-range]');
+        const titleOne = traceDetail.querySelector('[data-trace-title-one]');
+        const descriptionOne = traceDetail.querySelector('[data-trace-description-one]');
+        const titleTwo = traceDetail.querySelector('[data-trace-title-two]');
+        const descriptionTwo = traceDetail.querySelector('[data-trace-description-two]');
+        let detailAnimation = null;
 
-        function activateSystemNode(node) {
-            const phase = node.dataset.phase.toLowerCase();
-            const wasActive = node.classList.contains('is-active');
+        function activateTracePhase(button) {
+            const phase = button.dataset.tracePhase;
+            const content = traceContent[phase];
+            const wasActive = button.classList.contains('is-active');
 
-            systemNodes.forEach(item => {
-                const isActive = item === node;
+            tracePhases.forEach(item => {
+                const isActive = item === button;
                 item.classList.toggle('is-active', isActive);
                 item.setAttribute('aria-pressed', String(isActive));
             });
 
-            systemSpokes.forEach(spoke => {
-                spoke.classList.toggle('is-active', spoke.dataset.systemSpoke === node.dataset.step);
-            });
+            traceDiagram.dataset.activePhase = phase;
+            traceDetail.dataset.phase = phase;
+            phaseLabel.textContent = content.label;
+            phaseRange.textContent = content.range;
+            titleOne.textContent = content.titleOne;
+            descriptionOne.textContent = content.descriptionOne;
+            titleTwo.textContent = content.titleTwo;
+            descriptionTwo.textContent = content.descriptionTwo;
 
-            detailPhase.textContent = node.dataset.phaseLabel || node.dataset.phase;
-            detailNumber.textContent = node.dataset.step;
-            detailTitle.textContent = node.dataset.title;
-            detailDescription.textContent = node.dataset.description;
-            systemDetail.dataset.phase = phase;
-            systemMap.dataset.activePhase = phase;
-
-            if (!wasActive && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                if (systemCore && typeof systemCore.animate === 'function') {
-                    if (corePulseAnimation) corePulseAnimation.cancel();
-                    corePulseAnimation = systemCore.animate([
-                        { transform: 'translate(-50%, -50%) scale(1)' },
-                        { transform: 'translate(-50%, -50%) scale(1.035)', offset: 0.45 },
-                        { transform: 'translate(-50%, -50%) scale(1)' }
-                    ], {
-                        duration: 460,
-                        easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)'
-                    });
-                }
-
-                if (typeof systemDetail.animate === 'function') {
-                    if (detailRevealAnimation) detailRevealAnimation.cancel();
-                    detailRevealAnimation = systemDetail.animate([
-                        { opacity: 0.68, transform: 'translateY(3px)' },
-                        { opacity: 1, transform: 'translateY(0)' }
-                    ], {
-                        duration: 240,
-                        easing: 'ease-out'
-                    });
-                }
+            if (!wasActive && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && typeof traceDetail.animate === 'function') {
+                if (detailAnimation) detailAnimation.cancel();
+                detailAnimation = traceDetail.animate([
+                    { opacity: 0.7, transform: 'translateY(3px)' },
+                    { opacity: 1, transform: 'translateY(0)' }
+                ], {
+                    duration: 220,
+                    easing: 'ease-out'
+                });
             }
         }
 
-        systemNodes.forEach((node, index) => {
-            node.addEventListener('pointerenter', () => activateSystemNode(node));
-            node.addEventListener('focus', () => activateSystemNode(node));
-            node.addEventListener('click', () => activateSystemNode(node));
-            node.addEventListener('keydown', event => {
+        tracePhases.forEach((button, index) => {
+            button.addEventListener('pointerenter', () => activateTracePhase(button));
+            button.addEventListener('focus', () => activateTracePhase(button));
+            button.addEventListener('click', () => activateTracePhase(button));
+            button.addEventListener('keydown', event => {
                 let nextIndex = null;
 
                 if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-                    nextIndex = (index + 1) % systemNodes.length;
+                    nextIndex = (index + 1) % tracePhases.length;
                 } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-                    nextIndex = (index - 1 + systemNodes.length) % systemNodes.length;
+                    nextIndex = (index - 1 + tracePhases.length) % tracePhases.length;
                 } else if (event.key === 'Home') {
                     nextIndex = 0;
                 } else if (event.key === 'End') {
-                    nextIndex = systemNodes.length - 1;
+                    nextIndex = tracePhases.length - 1;
                 }
 
                 if (nextIndex !== null) {
                     event.preventDefault();
-                    systemNodes[nextIndex].focus();
+                    tracePhases[nextIndex].focus();
                 }
             });
         });
-
-        if ('IntersectionObserver' in window) {
-            const systemObserver = new IntersectionObserver(entries => {
-                if (entries.some(entry => entry.isIntersecting)) {
-                    systemMap.classList.add('is-visible');
-                    systemObserver.disconnect();
-                }
-            }, { threshold: 0.25 });
-
-            systemObserver.observe(systemMap);
-        } else {
-            systemMap.classList.add('is-visible');
-        }
     }
 
     // Easter egg: triple-click logo to reveal playlist

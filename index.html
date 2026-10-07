@@ -18,7 +18,7 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="stylesheet" href="style.css?v=20261007d">
+    <link rel="stylesheet" href="style.css?v=20261007j">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-sans/style.min.css">
     <script type="application/ld+json">
     {
@@ -180,68 +180,78 @@
         <section id="approach" class="section approach-section" aria-labelledby="approach-title">
             <p class="section-title">How I work</p>
             <h2 id="approach-title" class="approach-title">From Ambiguity to Working Systems</h2>
-            <p class="approach-lede">I turn complex needs into technical direction, evaluate architectural tradeoffs, lead multidisciplinary engineering teams through delivery, and measure outcomes.</p>
+            <p class="approach-lede">I translate complex needs into technical direction, lead multidisciplinary teams through delivery, and measure whether what we build creates impact.</p>
 
-            <div class="system-explorer">
-                <div class="system-map" role="group" data-active-phase="define" aria-label="Eight steps from an ambiguous need to a working system and measurable outcomes">
-                    <svg class="system-connectors" viewBox="0 0 100 100" aria-hidden="true">
-                        <circle class="system-track" cx="50" cy="50" r="31"></circle>
-                        <circle class="system-phase-arc phase-ring-define" cx="50" cy="50" r="31" stroke-dasharray="42 153" stroke-dashoffset="0"></circle>
-                        <circle class="system-phase-arc phase-ring-design" cx="50" cy="50" r="31" stroke-dasharray="42 153" stroke-dashoffset="-49"></circle>
-                        <circle class="system-phase-arc phase-ring-build" cx="50" cy="50" r="31" stroke-dasharray="42 153" stroke-dashoffset="-98"></circle>
-                        <circle class="system-phase-arc phase-ring-deliver" cx="50" cy="50" r="31" stroke-dasharray="42 153" stroke-dashoffset="-147"></circle>
-                        <line class="system-spoke spoke-define is-active" data-system-spoke="01" x1="50" y1="50" x2="50" y2="7"></line>
-                        <line class="system-spoke spoke-define" data-system-spoke="02" x1="50" y1="50" x2="78" y2="20"></line>
-                        <line class="system-spoke spoke-design" data-system-spoke="03" x1="50" y1="50" x2="87" y2="50"></line>
-                        <line class="system-spoke spoke-design" data-system-spoke="04" x1="50" y1="50" x2="78" y2="80"></line>
-                        <line class="system-spoke spoke-build" data-system-spoke="05" x1="50" y1="50" x2="50" y2="93"></line>
-                        <line class="system-spoke spoke-build" data-system-spoke="06" x1="50" y1="50" x2="22" y2="80"></line>
-                        <line class="system-spoke spoke-deliver" data-system-spoke="07" x1="50" y1="50" x2="13" y2="50"></line>
-                        <line class="system-spoke spoke-deliver" data-system-spoke="08" x1="50" y1="50" x2="22" y2="20"></line>
+            <div class="trace-explorer">
+                <div class="trace-diagram" role="group" data-active-phase="frame" aria-label="A systems trace from ambiguous inputs through architecture and delivery to measurable impact">
+                    <svg class="trace-lines" viewBox="0 0 960 220" preserveAspectRatio="none" aria-hidden="true">
+                        <path class="trace-segment trace-frame" d="M 0 35 L 180 110"></path>
+                        <path class="trace-segment trace-frame" d="M 0 110 L 180 110"></path>
+                        <path class="trace-segment trace-frame" d="M 0 185 L 180 110 L 370 110"></path>
+
+                        <path class="trace-segment trace-architect" d="M 370 110 L 470 45 L 570 45"></path>
+                        <path class="trace-segment trace-architect" d="M 370 110 L 470 85 L 570 85"></path>
+                        <path class="trace-segment trace-architect" d="M 370 110 L 470 135 L 570 135"></path>
+                        <path class="trace-segment trace-architect" d="M 370 110 L 470 175 L 570 175"></path>
+
+                        <path class="trace-segment trace-deliver" d="M 570 45 L 610 45 L 700 110"></path>
+                        <path class="trace-segment trace-deliver" d="M 570 85 L 610 85 L 700 110"></path>
+                        <path class="trace-segment trace-deliver" d="M 570 135 L 610 135 L 700 110"></path>
+                        <path class="trace-segment trace-deliver" d="M 570 175 L 610 175 L 700 110 L 835 110"></path>
+
+                        <path class="trace-segment trace-improve" d="M 835 110 L 950 110"></path>
+                        <path class="trace-segment trace-improve trace-feedback" d="M 835 125 C 790 210 260 210 180 125"></path>
+                        <path class="trace-arrow trace-improve" d="M 950 110 L 940 103 M 950 110 L 940 117"></path>
+
+                        <path class="trace-gate trace-frame" d="M 180 96 L 180 124"></path>
+                        <path class="trace-gate trace-architect" d="M 370 96 L 370 124"></path>
+                        <path class="trace-gate trace-deliver" d="M 700 96 L 700 124"></path>
+                        <path class="trace-gate trace-improve" d="M 835 96 L 835 124"></path>
                     </svg>
 
-                    <div class="system-core" aria-hidden="true">
-                        <span class="system-core-label">Working<br>System</span>
+                    <div class="trace-input-labels" aria-hidden="true">
+                        <span>Need</span>
+                        <span>Users</span>
+                        <span>Constraints</span>
                     </div>
+                    <div class="trace-rail-labels" aria-hidden="true">
+                        <span>Product</span>
+                        <span>Data</span>
+                        <span>ML</span>
+                        <span>Infrastructure</span>
+                    </div>
+                    <span class="trace-mobile-input-label" aria-hidden="true">Inputs</span>
+                    <span class="trace-mobile-system-label" aria-hidden="true">System</span>
+                    <span class="trace-impact-label" aria-hidden="true">Impact</span>
 
-                    <button class="system-node phase-define is-active" type="button" style="--x: 50%; --y: 7%; --order: 1" data-system-step data-step="01" data-phase="Define" data-phase-label="Frame" data-title="Frame the problem" data-description="Clarify the need, users, constraints, and technical context." aria-controls="system-detail" aria-pressed="true">
-                        <span class="system-node-index">01</span>
-                        <span>Frame the problem</span>
+                    <button class="trace-phase trace-phase-frame is-active" type="button" data-trace-phase="frame" aria-controls="trace-detail" aria-pressed="true">
+                        <span class="trace-phase-number">01</span>
+                        <span>Frame</span>
                     </button>
-                    <button class="system-node phase-define" type="button" style="--x: 78%; --y: 20%; --order: 2" data-system-step data-step="02" data-phase="Define" data-phase-label="Frame" data-title="Define success" data-description="Set business KPIs, user outcomes, and technical guardrails." aria-controls="system-detail" aria-pressed="false">
-                        <span class="system-node-index">02</span>
-                        <span>Define success</span>
+                    <button class="trace-phase trace-phase-architect" type="button" data-trace-phase="architect" aria-controls="trace-detail" aria-pressed="false">
+                        <span class="trace-phase-number">02</span>
+                        <span>Architect</span>
                     </button>
-                    <button class="system-node phase-design" type="button" style="--x: 87%; --y: 50%; --order: 3" data-system-step data-step="03" data-phase="Design" data-phase-label="Design" data-title="Set technical direction" data-description="Shape architecture, data, ML, cloud choices, and tradeoffs." aria-controls="system-detail" aria-pressed="false">
-                        <span class="system-node-index">03</span>
-                        <span>Set technical direction</span>
+                    <button class="trace-phase trace-phase-deliver" type="button" data-trace-phase="deliver" aria-controls="trace-detail" aria-pressed="false">
+                        <span class="trace-phase-number">03</span>
+                        <span>Deliver</span>
                     </button>
-                    <button class="system-node phase-design" type="button" style="--x: 78%; --y: 80%; --order: 4" data-system-step data-step="04" data-phase="Design" data-phase-label="Design" data-title="Shape the solution" data-description="Turn direction into product workflows, system boundaries, and an executable plan." aria-controls="system-detail" aria-pressed="false">
-                        <span class="system-node-index">04</span>
-                        <span>Shape the solution</span>
-                    </button>
-                    <button class="system-node phase-build" type="button" style="--x: 50%; --y: 93%; --order: 5" data-system-step data-step="05" data-phase="Build" data-phase-label="Execute" data-title="Lead execution" data-description="Align frontend, backend, design, data science, ML, and infrastructure around decisions." aria-controls="system-detail" aria-pressed="false">
-                        <span class="system-node-index">05</span>
-                        <span>Lead execution</span>
-                    </button>
-                    <button class="system-node phase-build" type="button" style="--x: 22%; --y: 80%; --order: 6" data-system-step data-step="06" data-phase="Build" data-phase-label="Execute" data-title="Remove blockers" data-description="Resolve technical dependencies and mobilize partner teams when delivery stalls." aria-controls="system-detail" aria-pressed="false">
-                        <span class="system-node-index">06</span>
-                        <span>Remove blockers</span>
-                    </button>
-                    <button class="system-node phase-deliver" type="button" style="--x: 13%; --y: 50%; --order: 7" data-system-step data-step="07" data-phase="Deliver" data-phase-label="Deliver" data-title="Deliver and operate" data-description="Lead production readiness, reliability, security, scalability, and adoption." aria-controls="system-detail" aria-pressed="false">
-                        <span class="system-node-index">07</span>
-                        <span>Deliver and operate</span>
-                    </button>
-                    <button class="system-node phase-deliver" type="button" style="--x: 22%; --y: 20%; --order: 8" data-system-step data-step="08" data-phase="Deliver" data-phase-label="Deliver" data-title="Measure and improve" data-description="Track system performance and business impact, then use evidence to iterate." aria-controls="system-detail" aria-pressed="false">
-                        <span class="system-node-index">08</span>
-                        <span>Measure and improve</span>
+                    <button class="trace-phase trace-phase-improve" type="button" data-trace-phase="improve" aria-controls="trace-detail" aria-pressed="false">
+                        <span class="trace-phase-number">04</span>
+                        <span>Improve</span>
                     </button>
                 </div>
 
-                <div id="system-detail" class="system-detail" data-phase="define" aria-live="polite" aria-atomic="true">
-                    <p class="system-detail-meta"><span data-system-phase>Frame</span><span aria-hidden="true">/</span><span data-system-number>01</span></p>
-                    <h3 data-system-title>Frame the problem</h3>
-                    <p data-system-description>Clarify the need, users, constraints, and technical context.</p>
+                <div id="trace-detail" class="trace-detail" data-phase="frame" aria-live="polite" aria-atomic="true">
+                    <p class="trace-detail-meta"><span data-trace-phase-label>Frame</span><span aria-hidden="true">/</span><span data-trace-range>01–02</span></p>
+                    <div class="trace-detail-step">
+                        <h3 data-trace-title-one>Frame the problem</h3>
+                        <p data-trace-description-one>Clarify the need, users, constraints, and technical context.</p>
+                    </div>
+                    <div class="trace-detail-step">
+                        <h3 data-trace-title-two>Define success</h3>
+                        <p data-trace-description-two>Set KPIs and technical guardrails before implementation.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -361,6 +371,6 @@
         </section>
     </main>
 
-    <script src="script.js?v=20261007d"></script>
+    <script src="script.js?v=20261007j"></script>
 </body>
 </html>
