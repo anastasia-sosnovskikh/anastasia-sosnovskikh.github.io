@@ -164,7 +164,7 @@
                 spoke.classList.toggle('is-active', spoke.dataset.systemSpoke === node.dataset.step);
             });
 
-            detailPhase.textContent = node.dataset.phase;
+            detailPhase.textContent = node.dataset.phaseLabel || node.dataset.phase;
             detailNumber.textContent = node.dataset.step;
             detailTitle.textContent = node.dataset.title;
             detailDescription.textContent = node.dataset.description;

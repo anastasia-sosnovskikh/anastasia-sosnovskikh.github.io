@@ -340,7 +340,7 @@ select:focus-visible {
 }
 
 .approach-lede {
-    max-width: 560px;
+    max-width: 720px;
     color: var(--text-secondary);
     margin-bottom: 3rem;
 }
@@ -449,6 +449,7 @@ select:focus-visible {
 .system-core-label {
     font-size: 0.875rem;
     font-weight: 500;
+    line-height: 1.25;
 }
 
 .system-node {
@@ -1435,6 +1436,7 @@ select:focus-visible {
     }
 
     .system-detail {
+        min-height: 8.5rem;
         margin-top: 1.5rem;
     }
 

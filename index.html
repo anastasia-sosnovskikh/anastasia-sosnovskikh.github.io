@@ -18,7 +18,7 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="stylesheet" href="style.css?v=20261007c">
+    <link rel="stylesheet" href="style.css?v=20261007d">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-sans/style.min.css">
     <script type="application/ld+json">
     {
@@ -179,11 +179,11 @@
 
         <section id="approach" class="section approach-section" aria-labelledby="approach-title">
             <p class="section-title">How I work</p>
-            <h2 id="approach-title" class="approach-title">Everything Around the Model</h2>
-            <p class="approach-lede">A model is one component. The work is turning an ambiguous need into a reliable system that people can use and the business can measure.</p>
+            <h2 id="approach-title" class="approach-title">From Ambiguity to Working Systems</h2>
+            <p class="approach-lede">I turn complex needs into technical direction, evaluate architectural tradeoffs, lead multidisciplinary engineering teams through delivery, and measure outcomes.</p>
 
             <div class="system-explorer">
-                <div class="system-map" data-active-phase="define" aria-label="The eight parts of taking a model from business need to adoption">
+                <div class="system-map" role="group" data-active-phase="define" aria-label="Eight steps from an ambiguous need to a working system and measurable outcomes">
                     <svg class="system-connectors" viewBox="0 0 100 100" aria-hidden="true">
                         <circle class="system-track" cx="50" cy="50" r="31"></circle>
                         <circle class="system-phase-arc phase-ring-define" cx="50" cy="50" r="31" stroke-dasharray="42 153" stroke-dashoffset="0"></circle>
@@ -201,47 +201,47 @@
                     </svg>
 
                     <div class="system-core" aria-hidden="true">
-                        <span class="system-core-label">Model</span>
+                        <span class="system-core-label">Working<br>System</span>
                     </div>
 
-                    <button class="system-node phase-define is-active" type="button" style="--x: 50%; --y: 7%; --order: 1" data-system-step data-step="01" data-phase="Define" data-title="Business need" data-description="Translate ambiguity into a problem the team can solve." aria-controls="system-detail" aria-pressed="true">
+                    <button class="system-node phase-define is-active" type="button" style="--x: 50%; --y: 7%; --order: 1" data-system-step data-step="01" data-phase="Define" data-phase-label="Frame" data-title="Frame the problem" data-description="Clarify the need, users, constraints, and technical context." aria-controls="system-detail" aria-pressed="true">
                         <span class="system-node-index">01</span>
-                        <span>Business need</span>
+                        <span>Frame the problem</span>
                     </button>
-                    <button class="system-node phase-define" type="button" style="--x: 78%; --y: 20%; --order: 2" data-system-step data-step="02" data-phase="Define" data-title="Success metrics" data-description="Define KPIs before implementation so everyone knows what success means." aria-controls="system-detail" aria-pressed="false">
+                    <button class="system-node phase-define" type="button" style="--x: 78%; --y: 20%; --order: 2" data-system-step data-step="02" data-phase="Define" data-phase-label="Frame" data-title="Define success" data-description="Set business KPIs, user outcomes, and technical guardrails." aria-controls="system-detail" aria-pressed="false">
                         <span class="system-node-index">02</span>
-                        <span>Success metrics</span>
+                        <span>Define success</span>
                     </button>
-                    <button class="system-node phase-design" type="button" style="--x: 87%; --y: 50%; --order: 3" data-system-step data-step="03" data-phase="Design" data-title="Product design" data-description="Ground technical decisions in how people will actually use the system." aria-controls="system-detail" aria-pressed="false">
+                    <button class="system-node phase-design" type="button" style="--x: 87%; --y: 50%; --order: 3" data-system-step data-step="03" data-phase="Design" data-phase-label="Design" data-title="Set technical direction" data-description="Shape architecture, data, ML, cloud choices, and tradeoffs." aria-controls="system-detail" aria-pressed="false">
                         <span class="system-node-index">03</span>
-                        <span>Product design</span>
+                        <span>Set technical direction</span>
                     </button>
-                    <button class="system-node phase-design" type="button" style="--x: 78%; --y: 80%; --order: 4" data-system-step data-step="04" data-phase="Design" data-title="Data science &amp; ML" data-description="Shape data, models, and evaluation around the real use case." aria-controls="system-detail" aria-pressed="false">
+                    <button class="system-node phase-design" type="button" style="--x: 78%; --y: 80%; --order: 4" data-system-step data-step="04" data-phase="Design" data-phase-label="Design" data-title="Shape the solution" data-description="Turn direction into product workflows, system boundaries, and an executable plan." aria-controls="system-detail" aria-pressed="false">
                         <span class="system-node-index">04</span>
-                        <span>Data science &amp; ML</span>
+                        <span>Shape the solution</span>
                     </button>
-                    <button class="system-node phase-build" type="button" style="--x: 50%; --y: 93%; --order: 5" data-system-step data-step="05" data-phase="Build" data-title="Frontend &amp; backend" data-description="Turn the idea into a complete product, not an isolated technical output." aria-controls="system-detail" aria-pressed="false">
+                    <button class="system-node phase-build" type="button" style="--x: 50%; --y: 93%; --order: 5" data-system-step data-step="05" data-phase="Build" data-phase-label="Execute" data-title="Lead execution" data-description="Align frontend, backend, design, data science, ML, and infrastructure around decisions." aria-controls="system-detail" aria-pressed="false">
                         <span class="system-node-index">05</span>
-                        <span>Frontend &amp; backend</span>
+                        <span>Lead execution</span>
                     </button>
-                    <button class="system-node phase-build" type="button" style="--x: 22%; --y: 80%; --order: 6" data-system-step data-step="06" data-phase="Build" data-title="Infrastructure" data-description="Make deployment, security, reliability, and scale part of the design." aria-controls="system-detail" aria-pressed="false">
+                    <button class="system-node phase-build" type="button" style="--x: 22%; --y: 80%; --order: 6" data-system-step data-step="06" data-phase="Build" data-phase-label="Execute" data-title="Remove blockers" data-description="Resolve technical dependencies and mobilize partner teams when delivery stalls." aria-controls="system-detail" aria-pressed="false">
                         <span class="system-node-index">06</span>
-                        <span>Infrastructure</span>
+                        <span>Remove blockers</span>
                     </button>
-                    <button class="system-node phase-deliver" type="button" style="--x: 13%; --y: 50%; --order: 7" data-system-step data-step="07" data-phase="Deliver" data-title="Production" data-description="Coordinate dependencies, remove blockers, and own the path to launch." aria-controls="system-detail" aria-pressed="false">
+                    <button class="system-node phase-deliver" type="button" style="--x: 13%; --y: 50%; --order: 7" data-system-step data-step="07" data-phase="Deliver" data-phase-label="Deliver" data-title="Deliver and operate" data-description="Lead production readiness, reliability, security, scalability, and adoption." aria-controls="system-detail" aria-pressed="false">
                         <span class="system-node-index">07</span>
-                        <span>Production</span>
+                        <span>Deliver and operate</span>
                     </button>
-                    <button class="system-node phase-deliver" type="button" style="--x: 22%; --y: 20%; --order: 8" data-system-step data-step="08" data-phase="Deliver" data-title="Adoption &amp; iteration" data-description="Measure use, learn from outcomes, and keep improving the system." aria-controls="system-detail" aria-pressed="false">
+                    <button class="system-node phase-deliver" type="button" style="--x: 22%; --y: 20%; --order: 8" data-system-step data-step="08" data-phase="Deliver" data-phase-label="Deliver" data-title="Measure and improve" data-description="Track system performance and business impact, then use evidence to iterate." aria-controls="system-detail" aria-pressed="false">
                         <span class="system-node-index">08</span>
-                        <span>Adoption &amp; iteration</span>
+                        <span>Measure and improve</span>
                     </button>
                 </div>
 
                 <div id="system-detail" class="system-detail" data-phase="define" aria-live="polite" aria-atomic="true">
-                    <p class="system-detail-meta"><span data-system-phase>Define</span><span aria-hidden="true">/</span><span data-system-number>01</span></p>
-                    <h3 data-system-title>Business need</h3>
-                    <p data-system-description>Translate ambiguity into a problem the team can solve.</p>
+                    <p class="system-detail-meta"><span data-system-phase>Frame</span><span aria-hidden="true">/</span><span data-system-number>01</span></p>
+                    <h3 data-system-title>Frame the problem</h3>
+                    <p data-system-description>Clarify the need, users, constraints, and technical context.</p>
                 </div>
             </div>
         </section>
@@ -361,6 +361,6 @@
         </section>
     </main>
 
-    <script src="script.js?v=20261007c"></script>
+    <script src="script.js?v=20261007d"></script>
 </body>
 </html>
